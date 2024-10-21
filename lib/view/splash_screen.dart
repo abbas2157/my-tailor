@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:my_tailor/constants/color/contantColor.dart';
+import 'package:my_tailor/constants/contantColor.dart';
 import 'package:my_tailor/view/login_screen.dart';
 
 class SplashScreen extends StatefulWidget {
