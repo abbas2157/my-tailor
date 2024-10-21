@@ -1,16 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:my_tailor/constants/contantColor.dart';
 import 'package:my_tailor/constants/customButton.dart';
-import 'package:my_tailor/view/signIp_screen.dart';
 
-class LoginScreen extends StatefulWidget {
-  const LoginScreen({super.key});
+class SignUpScreen extends StatefulWidget {
+  const SignUpScreen({super.key});
 
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
+  State<SignUpScreen> createState() => _SignUpScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _SignUpScreenState extends State<SignUpScreen> {
   bool isChecked = false;
   @override
   Widget build(BuildContext context) {
@@ -26,24 +25,47 @@ class _LoginScreenState extends State<LoginScreen> {
             children: [
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 50),
-                child: Image.asset('assets/images/App Icon.png'),
+                child: Container(
+                    height: height * 0.15,
+                    width: width,
+                    child: Image.asset('assets/images/App Icon.png')),
               ),
               const Padding(
-                padding: EdgeInsets.symmetric(horizontal: 50),
+                padding: EdgeInsets.symmetric(horizontal: 63),
                 child: Text(
-                  'Login to your Account',
+                  'Create an Account',
                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 26),
                 ),
               ),
               const Padding(
                 padding: EdgeInsets.symmetric(horizontal: 50),
                 child: Text(
-                  'Welcome back,please enter your details',
+                  'Sign up now to get started with an account',
+                  style: TextStyle(
+                      fontSize: 15, color: Colors.black54, letterSpacing: -0.5),
+                ),
+              ),
+              SizedBox(
+                height: height * 0.02,
+              ),
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 15),
+                child: Text(
+                  'Full Name',
                   style: TextStyle(fontSize: 15, color: Colors.black54),
                 ),
               ),
               SizedBox(
-                height: height * 0.03,
+                height: height * 0.005,
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 15),
+                child: TextFormField(
+                  decoration: textFormFieldDecoration(),
+                ),
+              ),
+              SizedBox(
+                height: height * 0.01,
               ),
               const Padding(
                 padding: EdgeInsets.symmetric(horizontal: 15),
@@ -53,7 +75,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
               ),
               SizedBox(
-                height: height * 0.01,
+                height: height * 0.005,
               ),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 15),
@@ -72,7 +94,26 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
               ),
               SizedBox(
-                height: height * 0.01,
+                height: height * 0.005,
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 15),
+                child: TextFormField(
+                  decoration: textFormFieldDecoration(),
+                ),
+              ),
+              SizedBox(
+                height: height * 0.02,
+              ),
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 15),
+                child: Text(
+                  'Confirm Password',
+                  style: TextStyle(fontSize: 15, color: Colors.black54),
+                ),
+              ),
+              SizedBox(
+                height: height * 0.0,
               ),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 15),
@@ -97,11 +138,18 @@ class _LoginScreenState extends State<LoginScreen> {
                           activeColor: Constantcolor.blueColor,
                           checkColor: Colors.white,
                         ),
-                        const Text('Remember me'),
+                        RichText(
+                            text: const TextSpan(children: [
+                          TextSpan(
+                              text: 'I have read and agree to the ',
+                              style: TextStyle(color: Constantcolor.blColor)),
+                          TextSpan(
+                              text: 'Term of Service',
+                              style: TextStyle(
+                                  decoration: TextDecoration.underline,
+                                  color: Constantcolor.blueColor))
+                        ]))
                       ],
-                    ),
-                    const Row(
-                      children: [Text("Forget Password?")],
                     ),
                   ],
                 ),
@@ -112,7 +160,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     size: Size.fromWidth(width),
                     color: Constantcolor.blueColor,
                     child: const Text(
-                      "Login",
+                      "Get Started",
                       style: TextStyle(
                           color: Colors.white,
                           fontSize: 20,
@@ -124,24 +172,19 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 90),
-                child: InkWell(
-                  onTap: () {
-                    Navigator.pushReplacement(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const SignUpScreen()));
-                  },
-                  child: RichText(
-                      text: const TextSpan(children: [
-                    TextSpan(
-                        text: "Don't have an account?",
-                        style: TextStyle(color: Colors.black)),
-                    TextSpan(
-                        text: "SignUp",
-                        style: TextStyle(color: Constantcolor.blueColor))
-                  ])),
-                ),
-              )
+                child: RichText(
+                    text: const TextSpan(children: [
+                  TextSpan(
+                      text: "Already have an account?",
+                      style: TextStyle(color: Colors.black)),
+                  TextSpan(
+                      text: "LogIn",
+                      style: TextStyle(color: Constantcolor.blueColor))
+                ])),
+              ),
+              SizedBox(
+                height: height * 0.06,
+              ),
             ],
           ),
         ),
