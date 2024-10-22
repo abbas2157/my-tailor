@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:my_tailor/app_strings/app_strings.dart';
 import 'package:my_tailor/constants/contantColor.dart';
 import 'package:my_tailor/constants/customButton.dart';
+import 'package:my_tailor/view/forgetPassword_screen.dart';
 import 'package:my_tailor/view/signIp_screen.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -31,14 +33,14 @@ class _LoginScreenState extends State<LoginScreen> {
               const Padding(
                 padding: EdgeInsets.symmetric(horizontal: 50),
                 child: Text(
-                  'Login to your Account',
+                  AppStrings.logintoyour,
                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 26),
                 ),
               ),
               const Padding(
                 padding: EdgeInsets.symmetric(horizontal: 50),
                 child: Text(
-                  'Welcome back,please enter your details',
+                  AppStrings.welcome,
                   style: TextStyle(fontSize: 15, color: Colors.black54),
                 ),
               ),
@@ -48,12 +50,12 @@ class _LoginScreenState extends State<LoginScreen> {
               const Padding(
                 padding: EdgeInsets.symmetric(horizontal: 15),
                 child: Text(
-                  'Email Address',
+                  AppStrings.emailAddress,
                   style: TextStyle(fontSize: 15, color: Colors.black54),
                 ),
               ),
               SizedBox(
-                height: height * 0.01,
+                height: height * 0.005,
               ),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 15),
@@ -67,12 +69,12 @@ class _LoginScreenState extends State<LoginScreen> {
               const Padding(
                 padding: EdgeInsets.symmetric(horizontal: 15),
                 child: Text(
-                  'Password',
+                  AppStrings.password,
                   style: TextStyle(fontSize: 15, color: Colors.black54),
                 ),
               ),
               SizedBox(
-                height: height * 0.01,
+                height: height * 0.005,
               ),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 15),
@@ -97,11 +99,21 @@ class _LoginScreenState extends State<LoginScreen> {
                           activeColor: Constantcolor.blueColor,
                           checkColor: Colors.white,
                         ),
-                        const Text('Remember me'),
+                        const Text(AppStrings.remember),
                       ],
                     ),
-                    const Row(
-                      children: [Text("Forget Password?")],
+                    Row(
+                      children: [
+                        InkWell(
+                            onTap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) =>
+                                          const ForgetpasswordScreen()));
+                            },
+                            child: const Text(AppStrings.forget))
+                      ],
                     ),
                   ],
                 ),
@@ -112,7 +124,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     size: Size.fromWidth(width),
                     color: Constantcolor.blueColor,
                     child: const Text(
-                      "Login",
+                      AppStrings.login,
                       style: TextStyle(
                           color: Colors.white,
                           fontSize: 20,
@@ -126,7 +138,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 padding: const EdgeInsets.symmetric(horizontal: 90),
                 child: InkWell(
                   onTap: () {
-                    Navigator.pushReplacement(
+                    Navigator.push(
                         context,
                         MaterialPageRoute(
                             builder: (context) => const SignUpScreen()));
@@ -134,10 +146,10 @@ class _LoginScreenState extends State<LoginScreen> {
                   child: RichText(
                       text: const TextSpan(children: [
                     TextSpan(
-                        text: "Don't have an account?",
+                        text: AppStrings.donthave,
                         style: TextStyle(color: Colors.black)),
                     TextSpan(
-                        text: "SignUp",
+                        text: AppStrings.signup,
                         style: TextStyle(color: Constantcolor.blueColor))
                   ])),
                 ),

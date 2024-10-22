@@ -16,4 +16,13 @@ class AppStrings {
   static const String remember = 'Remember me';
   static const String welcome = 'Welcome back,please enter your details';
   static const String logintoyour = 'Login to your Account';
+  static const String submit = 'Submit';
+  static const String otp = 'OTP Verification';
+  static const String enterOtp = 'Enter the OTP sent to ';
+  static const String yourEmail = 'your Email';
+  static const String dontreceive = "Don't receive code? ";
+  static const String reSend = "Re-send";
+
+  static const String enterEmailtogetcode =
+      'Enter the email address associated with your account to receive password reset code';
 }

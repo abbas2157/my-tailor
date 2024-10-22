@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:my_tailor/app_strings/app_strings.dart';
 import 'package:my_tailor/constants/contantColor.dart';
 import 'package:my_tailor/constants/customButton.dart';
+import 'package:my_tailor/view/login_screen.dart';
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({super.key});
@@ -33,14 +35,14 @@ class _SignUpScreenState extends State<SignUpScreen> {
               const Padding(
                 padding: EdgeInsets.symmetric(horizontal: 63),
                 child: Text(
-                  'Create an Account',
+                  AppStrings.creat,
                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 26),
                 ),
               ),
               const Padding(
                 padding: EdgeInsets.symmetric(horizontal: 50),
                 child: Text(
-                  'Sign up now to get started with an account',
+                  AppStrings.signUpnow,
                   style: TextStyle(
                       fontSize: 15, color: Colors.black54, letterSpacing: -0.5),
                 ),
@@ -51,7 +53,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
               const Padding(
                 padding: EdgeInsets.symmetric(horizontal: 15),
                 child: Text(
-                  'Full Name',
+                  AppStrings.fullName,
                   style: TextStyle(fontSize: 15, color: Colors.black54),
                 ),
               ),
@@ -70,7 +72,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
               const Padding(
                 padding: EdgeInsets.symmetric(horizontal: 15),
                 child: Text(
-                  'Email Address',
+                  AppStrings.emailAddress,
                   style: TextStyle(fontSize: 15, color: Colors.black54),
                 ),
               ),
@@ -84,12 +86,12 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 ),
               ),
               SizedBox(
-                height: height * 0.02,
+                height: height * 0.01,
               ),
               const Padding(
                 padding: EdgeInsets.symmetric(horizontal: 15),
                 child: Text(
-                  'Password',
+                  AppStrings.password,
                   style: TextStyle(fontSize: 15, color: Colors.black54),
                 ),
               ),
@@ -103,17 +105,17 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 ),
               ),
               SizedBox(
-                height: height * 0.02,
+                height: height * 0.01,
               ),
               const Padding(
                 padding: EdgeInsets.symmetric(horizontal: 15),
                 child: Text(
-                  'Confirm Password',
+                  AppStrings.confirmPassword,
                   style: TextStyle(fontSize: 15, color: Colors.black54),
                 ),
               ),
               SizedBox(
-                height: height * 0.0,
+                height: height * 0.001,
               ),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 15),
@@ -138,17 +140,25 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           activeColor: Constantcolor.blueColor,
                           checkColor: Colors.white,
                         ),
-                        RichText(
-                            text: const TextSpan(children: [
-                          TextSpan(
-                              text: 'I have read and agree to the ',
-                              style: TextStyle(color: Constantcolor.blColor)),
-                          TextSpan(
-                              text: 'Term of Service',
-                              style: TextStyle(
-                                  decoration: TextDecoration.underline,
-                                  color: Constantcolor.blueColor))
-                        ]))
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.pushReplacement(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => const LoginScreen()));
+                          },
+                          child: RichText(
+                              text: const TextSpan(children: [
+                            TextSpan(
+                                text: AppStrings.iHaveRead,
+                                style: TextStyle(color: Constantcolor.blColor)),
+                            TextSpan(
+                                text: AppStrings.termservice,
+                                style: TextStyle(
+                                    decoration: TextDecoration.underline,
+                                    color: Constantcolor.blueColor))
+                          ])),
+                        )
                       ],
                     ),
                   ],
@@ -160,7 +170,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     size: Size.fromWidth(width),
                     color: Constantcolor.blueColor,
                     child: const Text(
-                      "Get Started",
+                      AppStrings.getStarted,
                       style: TextStyle(
                           color: Colors.white,
                           fontSize: 20,
@@ -172,15 +182,23 @@ class _SignUpScreenState extends State<SignUpScreen> {
               ),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 90),
-                child: RichText(
-                    text: const TextSpan(children: [
-                  TextSpan(
-                      text: "Already have an account?",
-                      style: TextStyle(color: Colors.black)),
-                  TextSpan(
-                      text: "LogIn",
-                      style: TextStyle(color: Constantcolor.blueColor))
-                ])),
+                child: InkWell(
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const LoginScreen()));
+                  },
+                  child: RichText(
+                      text: const TextSpan(children: [
+                    TextSpan(
+                        text: AppStrings.already,
+                        style: TextStyle(color: Colors.black)),
+                    TextSpan(
+                        text: AppStrings.login,
+                        style: TextStyle(color: Constantcolor.blueColor))
+                  ])),
+                ),
               ),
               SizedBox(
                 height: height * 0.06,
