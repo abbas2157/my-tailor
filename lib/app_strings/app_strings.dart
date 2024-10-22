@@ -22,6 +22,11 @@ class AppStrings {
   static const String yourEmail = 'your Email';
   static const String dontreceive = "Don't receive code? ";
   static const String reSend = "Re-send";
+  static const String setnew = "Set New Password";
+  static const String enterNewStrong =
+      "Enter new strong password at least 8 characters,with max of numbers and letters";
+  static const String newPassword = "New Password";
+  static const String confirmNewPassword = "Confirm New Password";
 
   static const String enterEmailtogetcode =
       'Enter the email address associated with your account to receive password reset code';

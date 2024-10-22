@@ -3,7 +3,7 @@ import 'package:my_tailor/app_strings/app_strings.dart';
 import 'package:my_tailor/constants/contantColor.dart';
 import 'package:my_tailor/constants/customButton.dart';
 import 'package:my_tailor/view/forgetPassword_screen.dart';
-import 'package:my_tailor/view/signIp_screen.dart';
+import 'package:my_tailor/view/signUp_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});

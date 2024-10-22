@@ -4,14 +4,14 @@ import 'package:my_tailor/constants/contantColor.dart';
 import 'package:my_tailor/constants/customButton.dart';
 import 'package:my_tailor/view/otpVerification.dart';
 
-class ForgetpasswordScreen extends StatefulWidget {
-  const ForgetpasswordScreen({super.key});
+class SetNewPassword extends StatefulWidget {
+  const SetNewPassword({super.key});
 
   @override
-  State<ForgetpasswordScreen> createState() => _ForgetpasswordScreenState();
+  State<SetNewPassword> createState() => _SetNewPasswordState();
 }
 
-class _ForgetpasswordScreenState extends State<ForgetpasswordScreen> {
+class _SetNewPasswordState extends State<SetNewPassword> {
   @override
   Widget build(BuildContext context) {
     final height = MediaQuery.sizeOf(context).height * 1;
@@ -34,14 +34,14 @@ class _ForgetpasswordScreenState extends State<ForgetpasswordScreen> {
             const Padding(
               padding: EdgeInsets.symmetric(horizontal: 63),
               child: Text(
-                AppStrings.forget,
+                AppStrings.setnew,
                 style: TextStyle(fontWeight: FontWeight.bold, fontSize: 26),
               ),
             ),
             const Padding(
               padding: EdgeInsets.symmetric(horizontal: 47),
               child: Text(
-                AppStrings.enterEmailtogetcode,
+                AppStrings.enterNewStrong,
                 style: TextStyle(
                   fontSize: 14,
                   color: Colors.black54,
@@ -49,12 +49,12 @@ class _ForgetpasswordScreenState extends State<ForgetpasswordScreen> {
               ),
             ),
             SizedBox(
-              height: height * 0.05,
+              height: height * 0.02,
             ),
             const Padding(
               padding: EdgeInsets.symmetric(horizontal: 15),
               child: Text(
-                AppStrings.emailAddress,
+                AppStrings.newPassword,
                 style: TextStyle(fontSize: 15, color: Colors.black54),
               ),
             ),
@@ -68,28 +68,39 @@ class _ForgetpasswordScreenState extends State<ForgetpasswordScreen> {
               ),
             ),
             SizedBox(
+              height: height * 0.03,
+            ),
+            const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 15),
+              child: Text(
+                AppStrings.confirmNewPassword,
+                style: TextStyle(fontSize: 15, color: Colors.black54),
+              ),
+            ),
+            SizedBox(
               height: height * 0.005,
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 15),
-              child: InkWell(
-                onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const Otpverification()));
-                },
-                child: MyCustomButton(
-                    size: Size.fromWidth(width),
-                    color: Constantcolor.blueColor,
-                    child: const Text(
-                      AppStrings.submit,
-                      style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 20,
-                          fontWeight: FontWeight.w600),
-                    )),
+              child: TextFormField(
+                decoration: textFormFieldDecoration(),
               ),
+            ),
+            SizedBox(
+              height: height * 0.02,
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 15),
+              child: MyCustomButton(
+                  size: Size.fromWidth(width),
+                  color: Constantcolor.blueColor,
+                  child: const Text(
+                    AppStrings.submit,
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 20,
+                        fontWeight: FontWeight.w600),
+                  )),
             ),
           ],
         ),

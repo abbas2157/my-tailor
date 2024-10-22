@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:my_tailor/app_strings/app_strings.dart';
 import 'package:my_tailor/constants/contantColor.dart';
 import 'package:my_tailor/constants/customButton.dart';
+import 'package:my_tailor/view/set_new_password.dart';
 
 class Otpverification extends StatefulWidget {
   const Otpverification({super.key});
@@ -98,16 +99,24 @@ class _OtpverificationState extends State<Otpverification> {
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 15),
-              child: MyCustomButton(
-                  size: Size.fromWidth(width),
-                  color: Constantcolor.blueColor,
-                  child: const Text(
-                    AppStrings.submit,
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 20,
-                        fontWeight: FontWeight.w600),
-                  )),
+              child: InkWell(
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const SetNewPassword()));
+                },
+                child: MyCustomButton(
+                    size: Size.fromWidth(width),
+                    color: Constantcolor.blueColor,
+                    child: const Text(
+                      AppStrings.submit,
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 20,
+                          fontWeight: FontWeight.w600),
+                    )),
+              ),
             ),
           ],
         ),
