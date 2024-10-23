@@ -3,6 +3,7 @@ import 'package:my_tailor/app_strings/app_strings.dart';
 import 'package:my_tailor/constants/contantColor.dart';
 import 'package:my_tailor/constants/customButton.dart';
 import 'package:my_tailor/view/forgetPassword_screen.dart';
+import 'package:my_tailor/view/screens/rootPage.dart';
 import 'package:my_tailor/view/signUp_screen.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -120,16 +121,24 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 15),
-                child: MyCustomButton(
-                    size: Size.fromWidth(width),
-                    color: Constantcolor.blueColor,
-                    child: const Text(
-                      AppStrings.login,
-                      style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 20,
-                          fontWeight: FontWeight.w600),
-                    )),
+                child: InkWell(
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const RootPage()));
+                  },
+                  child: MyCustomButton(
+                      size: Size.fromWidth(width),
+                      color: Constantcolor.blueColor,
+                      child: const Text(
+                        AppStrings.login,
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 20,
+                            fontWeight: FontWeight.w600),
+                      )),
+                ),
               ),
               SizedBox(
                 height: height * 0.02,
