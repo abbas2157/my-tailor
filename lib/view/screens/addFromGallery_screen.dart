@@ -11,12 +11,28 @@ class AddfromgalleryScreen extends StatefulWidget {
 class _AddfromgalleryScreenState extends State<AddfromgalleryScreen> {
   @override
   Widget build(BuildContext context) {
-    final height = MediaQuery.sizeOf(context).height * 1;
-    final width = MediaQuery.sizeOf(context).width * 1;
+    final height = MediaQuery.sizeOf(context).height;
+    final width = MediaQuery.sizeOf(context).width;
+
     return Scaffold(
       backgroundColor: Colors.white,
-      body: Column(
-        children: [DressWidget(height: height, width: width,image: DressVarieties(image: image, varietyName: varietyName).,)],
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 15),
+        child: GridView.builder(
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 2,
+            mainAxisSpacing: 10,
+            crossAxisSpacing: 10,
+          ),
+          itemCount: dressList.length,
+          itemBuilder: (BuildContext context, int index) {
+            return DressWidget(
+              height: height,
+              width: width,
+              image: dressList[index].image,
+            );
+          },
+        ),
       ),
     );
   }
@@ -36,37 +52,19 @@ class DressWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 15),
-        child: GridView.builder(
-          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 2,
-            mainAxisSpacing: 10,
-            crossAxisSpacing: 10,
+    return Container(
+      color: Colors.black12,
+      child: Column(
+        children: [
+          SizedBox(
+            height: height * 0.2,
+            width: width * 0.3,
+            child: Image.asset(
+              image,
+              fit: BoxFit.fill,
+            ),
           ),
-          scrollDirection: Axis.vertical,
-          itemCount: 20,
-          itemBuilder: (BuildContext context, index) {
-            return Container(
-              color: Colors.black12,
-              height: 50,
-              width: 50,
-              child: Column(
-                children: [
-                  SizedBox(
-                    height: height * 0.2,
-                    width: width * 0.3,
-                    child: Image.asset(
-                      image,
-                      fit: BoxFit.fill,
-                    ),
-                  )
-                ],
-              ),
-            );
-          },
-        ),
+        ],
       ),
     );
   }
