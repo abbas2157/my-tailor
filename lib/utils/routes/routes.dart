@@ -11,7 +11,7 @@ class Routes {
             builder: (BuildContext context) => const SplashScreen());
       case RoutesName.loginScreen:
         return MaterialPageRoute(
-            builder: (BuildContext context) => const LoginScreen());
+            builder: (BuildContext context) => LoginScreen());
       default:
         return MaterialPageRoute(builder: (_) {
           return const Scaffold(
