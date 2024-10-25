@@ -9,7 +9,7 @@ import 'package:my_tailor/view/signUp_screen.dart';
 
 class LoginScreen extends StatelessWidget {
   // Instantiate the AuthController
-  final AuthController authController = Get.put(AuthController());
+  final Logincontroller authController = Get.put(Logincontroller());
 
   @override
   Widget build(BuildContext context) {

@@ -54,17 +54,12 @@ class DressWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       color: Colors.black12,
-      child: Column(
-        children: [
-          SizedBox(
-            height: height * 0.2,
-            width: width * 0.3,
-            child: Image.asset(
-              image,
-              fit: BoxFit.fill,
-            ),
-          ),
-        ],
+      child: Padding(
+        padding: const EdgeInsets.all(12.0),
+        child: Image.asset(
+          image,
+          fit: BoxFit.fill,
+        ),
       ),
     );
   }

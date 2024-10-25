@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
-class AuthController extends GetxController {
+class Logincontroller extends GetxController {
   var isLoading = false.obs;
 
   // TextEditingControllers for email and password
