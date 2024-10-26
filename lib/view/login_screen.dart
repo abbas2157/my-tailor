@@ -11,6 +11,11 @@ class LoginScreen extends StatelessWidget {
   // Instantiate the AuthController
   final Logincontroller authController = Get.put(Logincontroller());
 
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
+
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+
   @override
   Widget build(BuildContext context) {
     final height = MediaQuery.sizeOf(context).height * 1;
@@ -21,7 +26,7 @@ class LoginScreen extends StatelessWidget {
       body: SafeArea(
         child: SingleChildScrollView(
           child: Form(
-            key: authController.loginFormKey, // Form key for validation
+            key: _formKey,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.center,
@@ -58,8 +63,7 @@ class LoginScreen extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 15),
                   child: TextFormField(
-                    controller:
-                        authController.emailController, // Using controller
+                    controller: emailController, // Using controller
                     validator: (value) {
                       if (value == null || value.isEmpty) {
                         return 'Email is required';
@@ -85,8 +89,7 @@ class LoginScreen extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 15),
                   child: TextFormField(
-                    controller:
-                        authController.passwordController, // Using controller
+                    controller: passwordController, // Using controller
                     obscureText: true,
                     validator: (value) {
                       if (value == null || value.isEmpty) {
@@ -138,7 +141,11 @@ class LoginScreen extends StatelessWidget {
                         color: Constantcolor.blueColor,
                         onPressed: authController.isLoading.value
                             ? null
-                            : authController.login,
+                            : () {
+                                authController.login(
+                                    email: emailController.text,
+                                    password: passwordController.text);
+                              },
                         child: authController.isLoading.value
                             ? const CircularProgressIndicator(
                                 color: Colors.white)

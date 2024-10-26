@@ -211,6 +211,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
                               size: Size.fromWidth(width),
                               color: Constantcolor.blueColor,
                               onPressed: () {
+                                print(nameController.text.toString());
+                                print(emailController.text.toString());
+                                print(passwordController.text.toString());
+                                print(
+                                    confirmPasswordController.text.toString());
                                 if (_formKey.currentState!.validate()) {
                                   signupAuthController.createAccount(
                                     emailController.text,
