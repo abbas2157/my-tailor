@@ -1,9 +1,6 @@
-import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
-
-import 'package:my_tailor/services/network_manager/network_manager.dart';
 
 class Logincontroller extends GetxController {
   var isLoading = false.obs;
@@ -11,11 +8,20 @@ class Logincontroller extends GetxController {
   void login({required String email, required String password}) async {
     try {
       isLoading.value = true;
-      var data = await NetworkManager().post("account/login");
-      print(data);
-      if (data['success'] == true) {
-        print("login success");
-      }
+      var body = jsonEncode({"email": email, "password": password});
+      var headers = {
+        'Content-type': 'application/json',
+        'Accept': 'application/json',
+      };
+      http.Response response = await http.post(
+          Uri.parse(
+            "http://tailor.alraiclothes.pk/api/account/login",
+          ),
+          body: body,
+          headers: headers);
+      print("this is the response of login ${response.body}");
+      print("this is the status code of login ${response.statusCode}");
+
       isLoading.value = false;
     } catch (e) {
       isLoading.value = false;
