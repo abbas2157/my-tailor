@@ -23,6 +23,11 @@ class AppStrings {
   static const String dontreceive = "Don't receive code? ";
   static const String reSend = "Re-send";
   static const String setnew = "Set New Password";
+  static const String returnTologin = "Return To Login";
+  static const String returntoLoginScreen =
+      "Return to the login screen to enter the application";
+  static const String passwordRvrSuccessfully =
+      "Password Recover \n     Successfully";
   static const String enterNewStrong =
       "Enter new strong password at least 8 characters,with max of numbers and letters";
   static const String newPassword = "New Password";

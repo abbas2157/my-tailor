@@ -3,6 +3,7 @@ import 'package:my_tailor/app_strings/app_strings.dart';
 import 'package:my_tailor/constants/contantColor.dart';
 import 'package:my_tailor/constants/customButton.dart';
 import 'package:my_tailor/view/otpVerification.dart';
+import 'package:my_tailor/view/pswrd_rcvr_successfully.dart';
 
 class SetNewPassword extends StatefulWidget {
   const SetNewPassword({super.key});
@@ -91,16 +92,24 @@ class _SetNewPasswordState extends State<SetNewPassword> {
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 15),
-              child: MyCustomButton(
-                  size: Size.fromWidth(width),
-                  color: Constantcolor.blueColor,
-                  child: const Text(
-                    AppStrings.submit,
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 20,
-                        fontWeight: FontWeight.w600),
-                  )),
+              child: InkWell(
+                onTap: () {
+                  Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => PswrdRcvrSuccessfully()));
+                },
+                child: MyCustomButton(
+                    size: Size.fromWidth(width),
+                    color: Constantcolor.blueColor,
+                    child: const Text(
+                      AppStrings.submit,
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 20,
+                          fontWeight: FontWeight.w600),
+                    )),
+              ),
             ),
           ],
         ),
