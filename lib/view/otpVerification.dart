@@ -2,16 +2,24 @@ import 'package:flutter/material.dart';
 import 'package:my_tailor/app_strings/app_strings.dart';
 import 'package:my_tailor/constants/contantColor.dart';
 import 'package:my_tailor/constants/customButton.dart';
+import 'package:my_tailor/models/user_model.dart';
 import 'package:my_tailor/view/set_new_password.dart';
 
 class Otpverification extends StatefulWidget {
-  const Otpverification({super.key});
+  const Otpverification(
+      {super.key, required this.userModel, required this.isForSignup});
+  final UserModel userModel;
+  final bool isForSignup;
 
   @override
   State<Otpverification> createState() => _OtpverificationState();
 }
 
 class _OtpverificationState extends State<Otpverification> {
+  final firstController = TextEditingController();
+  final secondController = TextEditingController();
+  final thirdController = TextEditingController();
+  final fourthController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     final width = MediaQuery.sizeOf(context).width * 1;
@@ -66,10 +74,10 @@ class _OtpverificationState extends State<Otpverification> {
               child: Expanded(
                 child: Row(
                   children: [
-                    otpInput(),
-                    otpInput(),
-                    otpInput(),
-                    otpInput(),
+                    otpInput(firstController),
+                    otpInput(secondController),
+                    otpInput(thirdController),
+                    otpInput(fourthController),
                   ],
                 ),
               ),
@@ -100,12 +108,23 @@ class _OtpverificationState extends State<Otpverification> {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 15),
               child: InkWell(
-                onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const SetNewPassword()));
-                },
+                onTap: widget.isForSignup
+                    ? () { 
+
+                        String userEnteredOtp = "${firstController.text}${secondController.text}${thirdController.text}${fourthController.text}";
+                        /// save user details to local and navigate to homepage
+                         if(widget.userModel.emailVerificationCode.toString() == userEnteredOtp){
+
+                         }else{
+                          Get
+                         }
+                      }
+                    : () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const SetNewPassword()));
+                      },
                 child: MyCustomButton(
                     size: Size.fromWidth(width),
                     color: Constantcolor.blueColor,
@@ -124,7 +143,7 @@ class _OtpverificationState extends State<Otpverification> {
     );
   }
 
-  Widget otpInput() {
+  Widget otpInput(TextEditingController controller) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 6),
       child: Container(
@@ -134,8 +153,9 @@ class _OtpverificationState extends State<Otpverification> {
           border: Border.all(color: Colors.grey),
           borderRadius: BorderRadius.circular(10),
         ),
-        child: const Center(
+        child: Center(
           child: TextField(
+            controller: controller,
             keyboardType: TextInputType.number,
             textAlign: TextAlign.center,
             decoration: InputDecoration(

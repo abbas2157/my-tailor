@@ -1,8 +1,10 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:my_tailor/constants/contantColor.dart';
-import 'package:my_tailor/view/login_screen.dart';
+import 'package:my_tailor/local-storage_services/local_storage_methods.dart';
+import 'package:my_tailor/routes/routes_name.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -16,8 +18,12 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
     Timer(const Duration(seconds: 2), () {
-      Navigator.pushReplacement(
-          context, MaterialPageRoute(builder: (context) => LoginScreen()));
+      String? userId = LocalStorageMethods.instance.getUserId();
+      if (userId != null && userId.isNotEmpty) {
+        Get.offAllNamed(RouteNames.rootPage);
+      } else {
+        Get.offAllNamed(RouteNames.loginScreen);
+      }
     });
   }
 

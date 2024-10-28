@@ -74,10 +74,10 @@ class _ForgetpasswordScreenState extends State<ForgetpasswordScreen> {
               padding: const EdgeInsets.symmetric(horizontal: 15),
               child: InkWell(
                 onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const Otpverification()));
+                  // Navigator.push(
+                  //     context,
+                  //     MaterialPageRoute(
+                  //         builder: (context) => const OtpScreen()));
                 },
                 child: MyCustomButton(
                     size: Size.fromWidth(width),
