@@ -109,15 +109,16 @@ class _OtpverificationState extends State<Otpverification> {
               padding: const EdgeInsets.symmetric(horizontal: 15),
               child: InkWell(
                 onTap: widget.isForSignup
-                    ? () { 
+                    ? () {
+                        String userEnteredOtp =
+                            "${firstController.text}${secondController.text}${thirdController.text}${fourthController.text}";
 
-                        String userEnteredOtp = "${firstController.text}${secondController.text}${thirdController.text}${fourthController.text}";
                         /// save user details to local and navigate to homepage
-                         if(widget.userModel.emailVerificationCode.toString() == userEnteredOtp){
-
-                         }else{
-                          Get
-                         }
+                        if (widget.userModel.emailVerificationCode.toString() ==
+                            userEnteredOtp) {
+                        } else {
+                          //  Get.
+                        }
                       }
                     : () {
                         Navigator.push(

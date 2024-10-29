@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
+import 'package:my_tailor/models/user_model.dart';
 import 'package:my_tailor/routes/routes_name.dart';
 import 'package:my_tailor/view/forgetPassword_screen.dart';
 import 'package:my_tailor/view/login_screen.dart';
@@ -39,9 +40,11 @@ appRoutes() => [
       ),
       GetPage(
         name: RouteNames.otpVerficarion,
+
+        ///need some changes
         page: () => Otpverification(
-          userModel: null,
-          isForSignup: null,
+          userModel: UserModel(),
+          isForSignup: false,
         ),
         middlewares: [MyMiddelware()],
       ),

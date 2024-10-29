@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:my_tailor/app_strings/app_strings.dart';
 import 'package:my_tailor/constants/contantColor.dart';
 import 'package:my_tailor/constants/customButton.dart';
+import 'package:my_tailor/models/user_model.dart';
 import 'package:my_tailor/view/otpVerification.dart';
 
 class ForgetpasswordScreen extends StatefulWidget {
@@ -74,10 +75,16 @@ class _ForgetpasswordScreenState extends State<ForgetpasswordScreen> {
               padding: const EdgeInsets.symmetric(horizontal: 15),
               child: InkWell(
                 onTap: () {
-                  // Navigator.push(
-                  //     context,
-                  //     MaterialPageRoute(
-                  //         builder: (context) => const OtpScreen()));
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+
+                          ///need some changes
+                          ///
+                          builder: (context) => Otpverification(
+                                userModel: UserModel(),
+                                isForSignup: true,
+                              )));
                 },
                 child: MyCustomButton(
                     size: Size.fromWidth(width),
