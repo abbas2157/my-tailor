@@ -205,26 +205,28 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 15),
                     child: Obx(() {
-                      return signupAuthController.isLoading.value
-                          ? const Center(child: CircularProgressIndicator())
-                          : MyCustomButton(
-                              size: Size.fromWidth(width),
-                              color: Constantcolor.blueColor,
-                              onPressed: () {
-                                print(nameController.text.toString());
-                                print(emailController.text.toString());
-                                print(passwordController.text.toString());
-                                print(
-                                    confirmPasswordController.text.toString());
-                                if (_formKey.currentState!.validate()) {
-                                  signupAuthController.createAccount(
-                                    emailController.text,
-                                    passwordController.text,
-                                    nameController.text,
-                                  );
-                                }
-                              },
-                              child: const Text(
+                      return MyCustomButton(
+                        size: Size.fromWidth(width),
+                        color: Constantcolor.blueColor,
+                        onPressed: () {
+                          print(nameController.text.toString());
+                          print(emailController.text.toString());
+                          print(passwordController.text.toString());
+                          print(confirmPasswordController.text.toString());
+                          if (_formKey.currentState!.validate()) {
+                            signupAuthController.createAccount(
+                              email: emailController.text,
+                              cPassword: confirmPasswordController.text,
+                              password: passwordController.text,
+                              name: nameController.text,
+                            );
+                          }
+                        },
+                        child: signupAuthController.isLoading.value
+                            ? CircularProgressIndicator(
+                                color: Colors.white,
+                              )
+                            : const Text(
                                 AppStrings.getStarted,
                                 style: TextStyle(
                                   color: Colors.white,
@@ -232,7 +234,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                   fontWeight: FontWeight.w600,
                                 ),
                               ),
-                            );
+                      );
                     }),
                   ),
                   SizedBox(height: height * 0.02),

@@ -7,14 +7,22 @@ import 'package:my_tailor/controllers/authController/loginController.dart';
 import 'package:my_tailor/view/forgetPassword_screen.dart';
 import 'package:my_tailor/view/signUp_screen.dart';
 
-class LoginScreen extends StatelessWidget {
+class LoginScreen extends StatefulWidget {
+  @override
+  State<LoginScreen> createState() => _LoginScreenState();
+}
+
+class _LoginScreenState extends State<LoginScreen> {
   // Instantiate the AuthController
   final Logincontroller authController = Get.put(Logincontroller());
 
   final TextEditingController emailController = TextEditingController();
+
   final TextEditingController passwordController = TextEditingController();
 
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+
+  bool checkValue = false;
 
   @override
   Widget build(BuildContext context) {
@@ -111,15 +119,18 @@ class LoginScreen extends StatelessWidget {
                     children: [
                       Row(
                         children: [
-                          Obx(() => Checkbox(
-                                value: authController.isLoading
-                                    .value, // Bind loading state to checkbox
-                                onChanged: (bool? value) {
-                                  authController.isLoading(value!);
-                                },
-                                activeColor: Constantcolor.blueColor,
-                                checkColor: Colors.white,
-                              )),
+                          Checkbox(
+                            value: checkValue,
+                            // value: authController.isLoading
+                            //     .value, // Bind loading state to checkbox
+                            onChanged: (value) {
+                              checkValue = value ?? false;
+                              setState(() {});
+                              // authController.isLoading(value!);
+                            },
+                            activeColor: Constantcolor.blueColor,
+                            checkColor: Colors.white,
+                          ),
                           const Text(AppStrings.remember),
                         ],
                       ),
@@ -142,9 +153,17 @@ class LoginScreen extends StatelessWidget {
                         onPressed: authController.isLoading.value
                             ? null
                             : () {
-                                authController.login(
-                                    email: emailController.text,
-                                    password: passwordController.text);
+                                if (_formKey.currentState!.validate()) {
+                                  authController.login(
+                                      email: emailController.text,
+                                      password: passwordController.text);
+                                  // If all fields are valid, proceed with form submission
+                                  String email = emailController.text;
+                                  String password = passwordController.text;
+                                  print("Email: $email, Password: $password");
+
+                                  // Further actions like logging in the user or sending data to an API
+                                }
                               },
                         child: authController.isLoading.value
                             ? const CircularProgressIndicator(

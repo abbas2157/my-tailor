@@ -14,6 +14,24 @@ class LocalStorageMethods {
     return email;
   }
 
+  Future<void> writeUserName(String name) async {
+    await Prefs.setString("userNameKey", name);
+  }
+
+  String? getUserName() {
+    String? name = Prefs.getString("userNameKey");
+    return name;
+  }
+
+  Future<void> writeUserApiToken(String token) async {
+    await Prefs.setString("apiTokenKey", token);
+  }
+
+  String? getUserApiToken() {
+    String? email = Prefs.getString("apiTokenKey");
+    return email;
+  }
+
   Future<void> writeUserID(String userID) async {
     await Prefs.setString("userID", userID);
   }
