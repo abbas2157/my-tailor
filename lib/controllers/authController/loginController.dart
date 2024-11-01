@@ -1,5 +1,6 @@
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
+import 'package:my_tailor/local-storage_services/local_storage_methods.dart';
 import 'dart:convert';
 import 'package:my_tailor/models/user_model.dart'; // Import UserModel
 import 'package:my_tailor/view/screens/rootPage.dart'; // Import RootPage
@@ -28,7 +29,12 @@ class Logincontroller extends GetxController {
       // Check if login was successful
       if (response.statusCode == 200 && responseData['success'] == true) {
         // Parse user data if necessary
-        UserModel userModel = UserModel.fromJson(responseData['data']);
+        UserModel userModel = UserModel.fromJson(responseData['data']['user']);
+        LocalStorageMethods.instance.writeUserID(userModel.userId.toString());
+        LocalStorageMethods.instance.writeUserEmail(userModel.email.toString());
+        LocalStorageMethods.instance
+            .writeUserApiToken(userModel.token.toString());
+        LocalStorageMethods.instance.writeUserName(userModel.name.toString());
 
         // Navigate to RootPage
         Get.offAll(() => RootPage());

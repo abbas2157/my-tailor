@@ -11,4 +11,5 @@ abstract class RouteNames {
   static const String addNewClient = "/addNewClient";
   static const String addFromGallery = "/addFromGallery";
   static const String otpVerficarion = "/otVerification";
+  static const String profile = "/profile";
 }

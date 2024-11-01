@@ -19,6 +19,7 @@ class _AddnewclientScreenState extends State<AddnewclientScreen> {
               padding: const EdgeInsets.symmetric(horizontal: 50),
               child: Image.asset('assets/images/App Icon.png'),
             ),
+            Text("soon things 'll be added")
           ],
         ));
   }

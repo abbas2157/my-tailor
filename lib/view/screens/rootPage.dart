@@ -2,7 +2,6 @@ import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.da
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:my_tailor/constants/contantColor.dart';
-import 'package:my_tailor/local-storage_services/local_storage_methods.dart';
 import 'package:my_tailor/local-storage_services/shared_preferences.dart';
 import 'package:my_tailor/view/screens/addFromGallery_screen.dart';
 import 'package:my_tailor/view/screens/addNewClient_screen.dart';
@@ -34,8 +33,9 @@ class _RootPageState extends State<RootPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        automaticallyImplyLeading: false, // Prevents default back icon
-        title: Text(LocalStorageMethods.instance.getUserName() ?? "user_name"),
+        automaticallyImplyLeading: true, // Prevents default back icon
+        title: Text('MyTailor'),
+        // Text(LocalStorageMethods.instance.getUserName() ?? "user_name"),
         actions: const [
           Icon(Icons.language),
           Padding(
@@ -44,13 +44,43 @@ class _RootPageState extends State<RootPage> {
           ),
         ],
         backgroundColor: Colors.white,
-        leading: IconButton(
-            icon: const Icon(Icons.arrow_back_ios_new_outlined,
-                color: Colors.black),
-            onPressed: () async {
-              await Prefs.clear();
-              Get.offAllNamed('/loginScreen');
-            }),
+      ),
+      drawer: Drawer(
+        backgroundColor: Colors.white,
+        // Attach the Drawer widget here
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: [
+            DrawerHeader(
+              decoration: BoxDecoration(
+                color: Colors.blue,
+              ),
+              child: Text(
+                'MyTailor',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 24,
+                ),
+              ),
+            ),
+            ListTile(
+                leading: Icon(Icons.logout_outlined),
+                title: Text('Logout'),
+                onTap: () async {
+                  await Prefs.clear();
+                  Get.offAllNamed('/loginScreen');
+                } // Close the drawer
+
+                ),
+            ListTile(
+              leading: Icon(Icons.person),
+              title: Text('Profile'),
+              onTap: () {
+                Get.toNamed('/profile');
+              },
+            ),
+          ],
+        ),
       ),
       backgroundColor: Colors.white,
       body: IndexedStack(

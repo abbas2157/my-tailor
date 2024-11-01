@@ -1,24 +1,22 @@
 class UserModel {
   String? token;
-  int? userId;
-  int? emailVerificationCode;
+  String? userId;
+  String? emailVerificationCode;
   String? name;
+  String? email;
 
-  UserModel({this.token, this.userId, this.emailVerificationCode, this.name});
+  UserModel(
+      {this.token,
+      this.userId,
+      this.emailVerificationCode,
+      this.name,
+      this.email});
 
   UserModel.fromJson(Map<String, dynamic> json) {
     token = json['token'];
-    userId = json['user_id'];
-    emailVerificationCode = json['email_verification_code'];
+    userId = json['user_id'].toString();
+    emailVerificationCode = json['email_verification_code'].toString();
     name = json['name'];
-  }
-
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['token'] = this.token;
-    data['user_id'] = this.userId;
-    data['email_verification_code'] = this.emailVerificationCode;
-    data['name'] = this.name;
-    return data;
+    email = json['email'];
   }
 }
