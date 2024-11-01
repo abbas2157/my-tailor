@@ -76,7 +76,7 @@ class _RootPageState extends State<RootPage> {
               leading: Icon(Icons.person),
               title: Text('Profile'),
               onTap: () {
-                Get.toNamed('/profile');
+                Get.toNamed('/profileScreen');
               },
             ),
           ],
