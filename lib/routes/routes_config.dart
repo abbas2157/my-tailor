@@ -38,10 +38,10 @@ appRoutes() => [
         name: RouteNames.setNewPassword,
         page: () => const SetNewPassword(),
       ),
-      GetPage(
-        name: RouteNames.profile,
-        page: () => const Profile(),
-      ),
+      // GetPage(
+      //   name: RouteNames.profile,
+      //   page: () => const Profile(),
+      // ),
       GetPage(
         name: RouteNames.profileScreen,
         page: () => ProfileScreen(),
