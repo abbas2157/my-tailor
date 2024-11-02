@@ -39,19 +39,16 @@ class _LoginScreenState extends State<LoginScreen> {
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 50),
+                Center(
                   child: Image.asset('assets/images/App Icon.png'),
                 ),
-                const Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 50),
+                const Center(
                   child: Text(
                     AppStrings.logintoyour,
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 26),
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
                   ),
                 ),
-                const Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 50),
+                const Center(
                   child: Text(
                     AppStrings.welcome,
                     style: TextStyle(fontSize: 15, color: Colors.black54),
@@ -61,7 +58,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
                 // Email Field
                 const Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 15),
+                  padding: EdgeInsets.symmetric(horizontal: 30),
                   child: Text(
                     AppStrings.emailAddress,
                     style: TextStyle(fontSize: 15, color: Colors.black54),
@@ -69,7 +66,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
                 SizedBox(height: height * 0.005),
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 15),
+                  padding: const EdgeInsets.symmetric(horizontal: 30),
                   child: TextFormField(
                     controller: emailController, // Using controller
                     validator: (value) {
@@ -87,7 +84,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
                 // Password Field
                 const Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 15),
+                  padding: EdgeInsets.symmetric(horizontal: 30),
                   child: Text(
                     AppStrings.password,
                     style: TextStyle(fontSize: 15, color: Colors.black54),
@@ -95,7 +92,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
                 SizedBox(height: height * 0.005),
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 15),
+                  padding: const EdgeInsets.symmetric(horizontal: 30),
                   child: TextFormField(
                     controller: passwordController, // Using controller
                     obscureText: true,
@@ -113,7 +110,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
                 // Remember Me and Forgot Password
                 Padding(
-                  padding: const EdgeInsets.only(right: 15),
+                  padding: const EdgeInsets.only(top: 5,right: 30, left: 25),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -146,7 +143,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
                 // Login Button
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 15),
+                  padding: const EdgeInsets.symmetric(horizontal: 30),
                   child: Obx(() => MyCustomButton(
                         size: Size.fromWidth(width),
                         color: Constantcolor.blueColor,

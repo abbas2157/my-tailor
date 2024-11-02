@@ -14,7 +14,7 @@ class AppStrings {
   static const String signup = 'SignUp';
   static const String forget = 'Forget Password?';
   static const String remember = 'Remember me';
-  static const String welcome = 'Welcome back,please enter your details';
+  static const String welcome = 'Welcome back!';
   static const String logintoyour = 'Login to your Account';
   static const String submit = 'Submit';
   static const String otp = 'OTP Verification';
