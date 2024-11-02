@@ -1,7 +1,4 @@
-import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:my_tailor/models/user_model.dart';
 import 'package:my_tailor/routes/routes_name.dart';
 import 'package:my_tailor/view/forgetPassword_screen.dart';
 import 'package:my_tailor/view/login_screen.dart';
@@ -9,6 +6,8 @@ import 'package:my_tailor/view/pswrd_rcvr_successfully.dart';
 import 'package:my_tailor/view/screens/addFromGallery_screen.dart';
 import 'package:my_tailor/view/screens/addNewClient_screen.dart';
 import 'package:my_tailor/view/screens/orders_screen.dart';
+import 'package:my_tailor/view/screens/profile.dart';
+import 'package:my_tailor/view/screens/profile_screen.dart';
 import 'package:my_tailor/view/screens/rootPage.dart';
 import 'package:my_tailor/view/set_new_password.dart';
 import 'package:my_tailor/view/signUp_screen.dart';
@@ -38,6 +37,14 @@ appRoutes() => [
       GetPage(
         name: RouteNames.setNewPassword,
         page: () => const SetNewPassword(),
+      ),
+      // GetPage(
+      //   name: RouteNames.profile,
+      //   page: () => const Profile(),
+      // ),
+      GetPage(
+        name: RouteNames.profileScreen,
+        page: () => ProfileScreen(),
       ),
       // GetPage(
       //   name: RouteNames.otpVerficarion,
