@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:my_tailor/local-storage_services/local_storage_methods.dart';
 
 class ProfileScreen extends StatelessWidget {
-  final String userName = "Ali Hassan";
-  final String userEmail = "hassan@example.com";
+  // final String userName = "Ali Hassan";
+  // final String userEmail = "hassan@example.com";
 
   @override
   Widget build(BuildContext context) {
