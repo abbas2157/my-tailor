@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_tailor/local-storage_services/local_storage_methods.dart';
 
 class ProfileScreen extends StatelessWidget {
   final String userName = "Ali Hassan";
@@ -9,7 +10,7 @@ class ProfileScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          userName,
+          LocalStorageMethods.instance.getUserName() ?? 'user_name',
           style: TextStyle(color: Colors.white, fontWeight: FontWeight.w600),
         ),
         backgroundColor: Colors.blue,
@@ -27,7 +28,7 @@ class ProfileScreen extends StatelessWidget {
             ProfileRow(
               icon: Icons.person,
               label: 'Name',
-              value: userName,
+              value: LocalStorageMethods.instance.getUserName() ?? 'user_name',
               onEdit: () {
                 // Implement edit functionality here
               },
@@ -36,7 +37,8 @@ class ProfileScreen extends StatelessWidget {
             ProfileRow(
               icon: Icons.email,
               label: 'Email',
-              value: userEmail,
+              value:
+                  LocalStorageMethods.instance.getUserEmail() ?? 'user_email',
               onEdit: () {
                 // Implement edit functionality here
               },
@@ -65,9 +67,7 @@ class ProfileScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   ElevatedButton(
-                    onPressed: () {
-                      // Implement cancel functionality here
-                    },
+                    onPressed: null,
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.grey[400], // Cancel button color
                       padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -79,9 +79,7 @@ class ProfileScreen extends StatelessWidget {
                   ),
                   SizedBox(width: 16),
                   ElevatedButton(
-                    onPressed: () {
-                      // Implement save functionality here
-                    },
+                    onPressed: null,
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.blue, // Save button color
                       padding: const EdgeInsets.symmetric(horizontal: 20),

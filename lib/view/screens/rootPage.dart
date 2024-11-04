@@ -36,11 +36,20 @@ class _RootPageState extends State<RootPage> {
         automaticallyImplyLeading: true, // Prevents default back icon
         title: Text('MyTailor'),
         // Text(LocalStorageMethods.instance.getUserName() ?? "user_name"),
-        actions: const [
-          Icon(Icons.language),
-          Padding(
-            padding: EdgeInsets.all(15.0),
-            child: Icon(Icons.notifications),
+        actions: [
+          InkWell(
+              onTap: () {
+                Get.toNamed('/language');
+              },
+              child: Icon(Icons.language)),
+          InkWell(
+            onTap: () {
+              Get.toNamed('/notification');
+            },
+            child: Padding(
+              padding: EdgeInsets.all(15.0),
+              child: Icon(Icons.notifications),
+            ),
           ),
         ],
         backgroundColor: Colors.white,

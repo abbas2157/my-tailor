@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class AddnewclientScreen extends StatefulWidget {
-  const AddnewclientScreen({super.key});
+class NotificatiionsScreen extends StatefulWidget {
+  const NotificatiionsScreen({super.key});
 
   @override
-  State<AddnewclientScreen> createState() => _AddnewclientScreenState();
+  State<NotificatiionsScreen> createState() => _NotificatiionsScreenState();
 }
 
-class _AddnewclientScreenState extends State<AddnewclientScreen> {
+class _NotificatiionsScreenState extends State<NotificatiionsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,13 +19,15 @@ class _AddnewclientScreenState extends State<AddnewclientScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 50),
-              child: Image.asset('assets/images/App Icon.png'),
+              padding: const EdgeInsets.symmetric(horizontal: 150),
+              child: Image.asset('assets/images/notifications.png'),
             ),
             SizedBox(
               height: 30,
             ),
-            Text("soon things 'll be added")
+            Text(
+              "No Alerts",
+            )
           ],
         ));
   }

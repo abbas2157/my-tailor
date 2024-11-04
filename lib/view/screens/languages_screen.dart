@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class AddnewclientScreen extends StatefulWidget {
-  const AddnewclientScreen({super.key});
+class LanguagesScreen extends StatefulWidget {
+  const LanguagesScreen({super.key});
 
   @override
-  State<AddnewclientScreen> createState() => _AddnewclientScreenState();
+  State<LanguagesScreen> createState() => _LanguagesScreenState();
 }
 
-class _AddnewclientScreenState extends State<AddnewclientScreen> {
+class _LanguagesScreenState extends State<LanguagesScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,13 +19,13 @@ class _AddnewclientScreenState extends State<AddnewclientScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 50),
-              child: Image.asset('assets/images/App Icon.png'),
+              padding: const EdgeInsets.symmetric(horizontal: 100),
+              child: Image.asset('assets/images/language.png'),
             ),
             SizedBox(
               height: 30,
             ),
-            Text("soon things 'll be added")
+            Text("Soon Language Option Will Be Available")
           ],
         ));
   }
