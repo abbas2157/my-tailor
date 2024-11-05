@@ -45,6 +45,9 @@ class MeasurementWidget extends StatelessWidget {
                 controller: controller,
                 keyboardType: TextInputType.number,
                 decoration: InputDecoration(
+                  focusedBorder: UnderlineInputBorder(
+                    borderSide: BorderSide(color: Constantcolor.blueColor),
+                  ),
                   hintText: '',
                   contentPadding: EdgeInsets.symmetric(
                       vertical: 10), // Adjust padding to align text

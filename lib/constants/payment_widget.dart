@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_tailor/constants/contantColor.dart';
 
 class PaymentWidget extends StatelessWidget {
   final String paymentName;
@@ -25,6 +26,10 @@ class PaymentWidget extends StatelessWidget {
             controller: controller,
             keyboardType: TextInputType.number,
             decoration: InputDecoration(
+              focusedBorder: UnderlineInputBorder(
+                borderSide: BorderSide(color: Constantcolor.blueColor),
+              ),
+              focusColor: Constantcolor.blueColor,
               contentPadding: EdgeInsets.symmetric(
                   vertical: 10, horizontal: 10), // Adjust padding for alignment
             ),

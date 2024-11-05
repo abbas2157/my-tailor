@@ -25,6 +25,7 @@ class _AddnewclientScreenState extends State<AddnewclientScreen> {
     final width = MediaQuery.sizeOf(context).width * 1;
     return Scaffold(
       appBar: AppBar(
+        elevation: 0,
         title: Text(
           "Client Name",
           style: TextStyle(fontWeight: FontWeight.w600),
