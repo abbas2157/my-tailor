@@ -3,6 +3,7 @@ import 'package:http/http.dart' as http;
 import 'package:my_tailor/local-storage_services/local_storage_methods.dart';
 import 'dart:convert';
 import 'package:my_tailor/models/user_model.dart'; // Import UserModel
+import 'package:my_tailor/services/network_manager/network_manager.dart';
 import 'package:my_tailor/view/screens/rootPage.dart'; // Import RootPage
 
 class Logincontroller extends GetxController {
@@ -17,7 +18,7 @@ class Logincontroller extends GetxController {
         'Accept': 'application/json',
       };
       http.Response response = await http.post(
-        Uri.parse("http://tailor.alraiclothes.pk/api/account/login"),
+        Uri.parse(NetworkManager.baseUrl + "account/login"),
         body: body,
         headers: headers,
       );

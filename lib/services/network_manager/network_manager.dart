@@ -4,7 +4,7 @@ import 'package:http/http.dart' as http; // For HTTP requests
 import 'dart:io'; // For handling socket exceptions
 
 class NetworkManager {
-  static const String _baseUrl =
+  static const String baseUrl =
       'http://tailor.alraiclothes.pk/api/'; // Base URL for your API
   static const int _timeoutDuration = 10; // Timeout duration in seconds
 
@@ -39,7 +39,7 @@ class NetworkManager {
     try {
       final response = await http
           .get(
-            Uri.parse('$_baseUrl$endpoint'),
+            Uri.parse('$baseUrl$endpoint'),
             headers: headers,
           )
           .timeout(
@@ -63,7 +63,7 @@ class NetworkManager {
     try {
       final response = await http
           .post(
-            Uri.parse('$_baseUrl$endpoint'),
+            Uri.parse('$baseUrl$endpoint'),
             headers: headers,
             body: jsonEncode(body), // Encode the body as JSON
           )
@@ -85,7 +85,7 @@ class NetworkManager {
     try {
       final response = await http
           .put(
-            Uri.parse('$_baseUrl$endpoint'),
+            Uri.parse('$baseUrl$endpoint'),
             headers: headers,
             body: jsonEncode(body),
           )
@@ -107,7 +107,7 @@ class NetworkManager {
     try {
       final response = await http
           .delete(
-            Uri.parse('$_baseUrl$endpoint'),
+            Uri.parse('$baseUrl$endpoint'),
             headers: headers,
           )
           .timeout(const Duration(seconds: _timeoutDuration));
