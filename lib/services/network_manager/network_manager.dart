@@ -95,7 +95,7 @@ class NetworkManager {
     } on SocketException {
       throw Exception('No Internet connection');
     } on TimeoutException {
-      throw Exception('Request timed out');
+      throw Exception('Request time out');
     } catch (e) {
       throw Exception('Unexpected error: $e');
     }
