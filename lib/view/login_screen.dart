@@ -177,8 +177,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 SizedBox(height: height * 0.02),
 
                 // Signup option
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 90),
+                Center(
                   child: InkWell(
                     onTap: () {
                       Get.to(() => const SignUpScreen());

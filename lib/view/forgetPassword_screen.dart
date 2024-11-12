@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:my_tailor/app_strings/app_strings.dart';
 import 'package:my_tailor/constants/contantColor.dart';
 import 'package:my_tailor/constants/customButton.dart';
 import 'package:my_tailor/models/user_model.dart';
 import 'package:my_tailor/view/otpVerification.dart';
+import 'package:my_tailor/view/login_screen.dart';
+import 'package:my_tailor/view/signUp_screen.dart';
 
 class ForgetpasswordScreen extends StatefulWidget {
   const ForgetpasswordScreen({super.key});
@@ -28,24 +31,24 @@ class _ForgetpasswordScreenState extends State<ForgetpasswordScreen> {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 50),
+            Center(
               child: Image.asset('assets/images/App Icon.png'),
             ),
-            const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 63),
+            const Center(
               child: Text(
                 AppStrings.forget,
                 style: TextStyle(fontWeight: FontWeight.bold, fontSize: 26),
               ),
             ),
             const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 47),
-              child: Text(
-                AppStrings.enterEmailtogetcode,
-                style: TextStyle(
-                  fontSize: 14,
-                  color: Colors.black54,
+              padding: EdgeInsets.symmetric(horizontal: 30),
+              child: Center(
+                child: Text(
+                  AppStrings.enterEmailtogetcode,
+                  style: TextStyle(
+                    fontSize: 14,
+                    color: Colors.black54,
+                  ),
                 ),
               ),
             ),
@@ -53,7 +56,7 @@ class _ForgetpasswordScreenState extends State<ForgetpasswordScreen> {
               height: height * 0.05,
             ),
             const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 15),
+              padding: EdgeInsets.symmetric(horizontal: 30),
               child: Text(
                 AppStrings.emailAddress,
                 style: TextStyle(fontSize: 15, color: Colors.black54),
@@ -63,7 +66,7 @@ class _ForgetpasswordScreenState extends State<ForgetpasswordScreen> {
               height: height * 0.005,
             ),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 15),
+              padding: const EdgeInsets.symmetric(horizontal: 30),
               child: TextFormField(
                 decoration: textFormFieldDecoration(),
               ),
@@ -71,8 +74,9 @@ class _ForgetpasswordScreenState extends State<ForgetpasswordScreen> {
             SizedBox(
               height: height * 0.005,
             ),
+            
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 15),
+              padding: const EdgeInsets.symmetric(horizontal: 30),
               child: InkWell(
                 onTap: () {
                   // Navigator.push(
@@ -86,16 +90,58 @@ class _ForgetpasswordScreenState extends State<ForgetpasswordScreen> {
                   //               isForSignup: true,
                   //             )));
                 },
-                child: MyCustomButton(
-                    size: Size.fromWidth(width),
-                    color: Constantcolor.blueColor,
-                    child: const Text(
-                      AppStrings.submit,
-                      style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 20,
-                          fontWeight: FontWeight.w600),
-                    )),
+                child: MyCustomButton (
+                  size: Size.fromWidth(width),
+                  color: Constantcolor.blueColor,
+                  child: const Text(
+                    AppStrings.submit,
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 20,
+                        fontWeight: FontWeight.w600),
+                  )
+                ),
+              ),
+            ),
+            SizedBox(
+              height: height * 0.05,
+            ),
+            Center(
+              child: InkWell(
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => LoginScreen()));
+                },
+                child: RichText(
+                    text: const TextSpan(children: [
+                  TextSpan(
+                      text: AppStrings.already,
+                      style: TextStyle(color: Colors.black)),
+                  TextSpan(
+                      text: AppStrings.login,
+                      style: TextStyle(color: Constantcolor.blueColor))
+                ])),
+              ),
+            ),
+            SizedBox(
+              height: height * 0.05,
+            ),
+            Center(
+              child: InkWell(
+                onTap: () {
+                  Get.to(() => const SignUpScreen());
+                },
+                child: RichText(
+                    text: const TextSpan(children: [
+                  TextSpan(
+                      text: AppStrings.donthave,
+                      style: TextStyle(color: Colors.black)),
+                  TextSpan(
+                      text: AppStrings.signup,
+                      style: TextStyle(color: Constantcolor.blueColor))
+                ])),
               ),
             ),
           ],

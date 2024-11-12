@@ -29,7 +29,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
   @override
   Widget build(BuildContext context) {
     final height = MediaQuery.sizeOf(context).height * 1;
-    final width = MediaQuery.sizeOf(context).width * 1;
+    final width = MediaQuery.sizeOf(context).width * 2;
 
     return Scaffold(
         backgroundColor: Colors.white,
@@ -41,23 +41,21 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 50),
+                  SizedBox(height: height * 0.02),
+                  Center(
                     child: Container(
                         height: height * 0.15,
-                        width: width,
+                        width: width * 20,
                         child: Image.asset('assets/images/App Icon.png')),
                   ),
-                  const Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 63),
+                  const Center(
                     child: Text(
                       AppStrings.creat,
                       style:
                           TextStyle(fontWeight: FontWeight.bold, fontSize: 26),
                     ),
                   ),
-                  const Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 50),
+                  const Center(
                     child: Text(
                       AppStrings.signUpnow,
                       style: TextStyle(
@@ -68,7 +66,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   ),
                   SizedBox(height: height * 0.02),
                   const Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 15),
+                    padding: EdgeInsets.symmetric(horizontal: 30),
                     child: Text(
                       AppStrings.fullName,
                       style: TextStyle(fontSize: 15, color: Colors.black54),
@@ -76,7 +74,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   ),
                   SizedBox(height: height * 0.005),
                   Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 15),
+                    padding: const EdgeInsets.symmetric(horizontal: 30),
                     child: TextFormField(
                       controller: nameController,
                       decoration: textFormFieldDecoration(),
@@ -90,7 +88,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   ),
                   SizedBox(height: height * 0.01),
                   const Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 15),
+                    padding: EdgeInsets.symmetric(horizontal: 30),
                     child: Text(
                       AppStrings.emailAddress,
                       style: TextStyle(fontSize: 15, color: Colors.black54),
@@ -98,7 +96,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   ),
                   SizedBox(height: height * 0.005),
                   Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 15),
+                    padding: const EdgeInsets.symmetric(horizontal: 30),
                     child: TextFormField(
                       controller: emailController,
                       decoration: textFormFieldDecoration(),
@@ -114,7 +112,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   ),
                   SizedBox(height: height * 0.01),
                   const Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 15),
+                    padding: EdgeInsets.symmetric(horizontal: 30),
                     child: Text(
                       AppStrings.password,
                       style: TextStyle(fontSize: 15, color: Colors.black54),
@@ -122,7 +120,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   ),
                   SizedBox(height: height * 0.005),
                   Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 14),
+                    padding: const EdgeInsets.symmetric(horizontal: 30),
                     child: TextFormField(
                       controller: passwordController,
                       obscureText: true,
@@ -139,7 +137,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   ),
                   SizedBox(height: height * 0.01),
                   const Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 15),
+                    padding: EdgeInsets.symmetric(horizontal: 30),
                     child: Text(
                       AppStrings.confirmPassword,
                       style: TextStyle(fontSize: 15, color: Colors.black54),
@@ -147,7 +145,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   ),
                   SizedBox(height: height * 0.001),
                   Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 15),
+                    padding: const EdgeInsets.symmetric(horizontal: 30),
                     child: TextFormField(
                       controller: confirmPasswordController,
                       obscureText: true,
@@ -163,7 +161,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(right: 15),
+                    padding: const EdgeInsets.only(left: 27),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -203,7 +201,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 15),
+                    padding: const EdgeInsets.symmetric(horizontal: 30),
                     child: Obx(() {
                       return MyCustomButton(
                         size: Size.fromWidth(width),
@@ -238,8 +236,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     }),
                   ),
                   SizedBox(height: height * 0.02),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 90),
+                  Center(
                     child: InkWell(
                       onTap: () {
                         Navigator.push(

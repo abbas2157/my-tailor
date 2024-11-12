@@ -71,12 +71,10 @@ class _OtpVerificationState extends State<OtpVerification> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 50),
+            Center(
               child: Image.asset('assets/images/App Icon.png'),
             ),
-            const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 63),
+            const Center(
               child: Text(
                 AppStrings.otp,
                 style: TextStyle(fontWeight: FontWeight.bold, fontSize: 26),

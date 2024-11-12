@@ -25,8 +25,7 @@ class _PswrdRcvrSuccessfullyState extends State<PswrdRcvrSuccessfully> {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 90),
+          Center(
             child: Container(
                 height: height * 0.3,
                 width: width * 0.5,

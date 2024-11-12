@@ -8,11 +8,11 @@ class AppStrings {
   static const String iHaveRead = 'I have read and agree to the ';
   static const String termservice = 'Term of Service';
   static const String getStarted = 'Get Started';
-  static const String already = 'Already have an account?';
-  static const String login = 'LogIn';
-  static const String donthave = "Don't have an account?";
-  static const String signup = 'SignUp';
-  static const String forget = 'Forget Password?';
+  static const String already = 'Already have an account ? ';
+  static const String login = ' Login';
+  static const String donthave = "Don't have an account ? ";
+  static const String signup = 'Create an account ';
+  static const String forget = 'Forget Password';
   static const String remember = 'Remember me';
   static const String welcome = 'Welcome back!';
   static const String logintoyour = 'Login to your Account';
@@ -20,7 +20,7 @@ class AppStrings {
   static const String otp = 'OTP Verification';
   static const String enterOtp = 'Enter the OTP sent to ';
   static const String yourEmail = 'your Email';
-  static const String dontreceive = "Don't receive code? ";
+  static const String dontreceive = "Don't receive code ? ";
   static const String reSend = "Re-send";
   static const String setnew = "Set New Password";
   static const String returnTologin = "Return To Login";
@@ -32,7 +32,5 @@ class AppStrings {
       "Enter new strong password at least 8 characters,with max of numbers and letters";
   static const String newPassword = "New Password";
   static const String confirmNewPassword = "Confirm New Password";
-
-  static const String enterEmailtogetcode =
-      'Enter the email address associated with your account to receive password reset code';
+  static const String enterEmailtogetcode = 'Enter the email addressr to receive password reset code';
 }
