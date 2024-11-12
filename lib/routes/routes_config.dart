@@ -5,8 +5,9 @@ import 'package:my_tailor/view/login_screen.dart';
 import 'package:my_tailor/view/pswrd_rcvr_successfully.dart';
 import 'package:my_tailor/view/screens/addFromGallery_screen.dart';
 import 'package:my_tailor/view/screens/addNewClient_screen.dart';
+import 'package:my_tailor/view/screens/languages_screen.dart';
+import 'package:my_tailor/view/screens/notificatiions_screen.dart';
 import 'package:my_tailor/view/screens/orders_screen.dart';
-import 'package:my_tailor/view/screens/profile.dart';
 import 'package:my_tailor/view/screens/profile_screen.dart';
 import 'package:my_tailor/view/screens/rootPage.dart';
 import 'package:my_tailor/view/set_new_password.dart';
@@ -38,13 +39,18 @@ appRoutes() => [
         name: RouteNames.setNewPassword,
         page: () => const SetNewPassword(),
       ),
-      // GetPage(
-      //   name: RouteNames.profile,
-      //   page: () => const Profile(),
-      // ),
+
       GetPage(
         name: RouteNames.profileScreen,
         page: () => ProfileScreen(),
+      ),
+      GetPage(
+        name: RouteNames.notification,
+        page: () => NotificatiionsScreen(),
+      ),
+      GetPage(
+        name: RouteNames.language,
+        page: () => LanguagesScreen(),
       ),
       // GetPage(
       //   name: RouteNames.otpVerficarion,

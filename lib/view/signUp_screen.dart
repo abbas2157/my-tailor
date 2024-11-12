@@ -122,7 +122,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   ),
                   SizedBox(height: height * 0.005),
                   Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 15),
+                    padding: const EdgeInsets.symmetric(horizontal: 14),
                     child: TextFormField(
                       controller: passwordController,
                       obscureText: true,

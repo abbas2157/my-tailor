@@ -3,6 +3,7 @@ import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 import 'package:my_tailor/models/user_model.dart';
+import 'package:my_tailor/services/network_manager/network_manager.dart';
 import 'package:my_tailor/view/otpVerification.dart';
 
 class SignupAuthController extends GetxController {
@@ -19,7 +20,7 @@ class SignupAuthController extends GetxController {
       print("signup called");
       isLoading.value = true; // Start loading
 
-      final url = 'http://tailor.alraiclothes.pk/api/account/create';
+      final url = NetworkManager.baseUrl + 'account/create';
       final headers = {'Content-Type': 'application/json'};
       final body = jsonEncode({
         'email': email,
